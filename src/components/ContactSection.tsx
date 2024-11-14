@@ -16,7 +16,14 @@ const ContactSection = forwardRef<HTMLElement>((_props, ref) => {
             <h2 className="text-center text-3xl underline underline-offset-4 mb-1">
                 Contact Me
             </h2>
-            <form className="flex flex-col gap-4 w-full max-w-xl mx-auto">
+            <form
+                name="contact"
+                data-netlify={true}
+                method="post"
+                onSubmit={(e) => e.preventDefault()}
+                className="flex flex-col gap-4 w-full max-w-xl mx-auto"
+            >
+                <input type="hidden" name="contact" value="contact" />
                 <input
                     type="text"
                     placeholder="Your email"
@@ -41,6 +48,12 @@ const ContactSection = forwardRef<HTMLElement>((_props, ref) => {
                         }))
                     }
                 />
+                <button
+                    type="submit"
+                    className="px-3 py-1.5 bg-[#27283D] text-white rounded-md self-center"
+                >
+                    Submit
+                </button>
             </form>
         </section>
     );
